@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: mylog-route
+          uri: https://example.com/api
+          predicates:
+            - Path=/api/**
