@@ -1,0 +1,40 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: member-api
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3307/molog
+    username: root
+    password: moya134353@@
+  jpa:
+    hibernate:
+      ddl-auto: create
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+  sql:
+    init:
+      mode: always
+      platform: mariadb
+
+
+## Logging
+logging:
+  level:
+    org:
+      hibernate:
+        sql: debug
+        type: trace
+
+## Eureka
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
