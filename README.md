@@ -11,17 +11,22 @@
 1. 마이크로서비스 아키텍처 구현
 2. Spring Boot , JPA 학습
 3. Redis를 사용하여 캐시 메모리 활용
-4. Docker를 사용하여 CI/CD 
+4. Github Actions & Docker를 사용하여 CI/CD 
 
 ### 프로젝트 요구사항
 
 1. 마이크로서비스 아키텍처 구현
    - Spring Cloud Eureka , Spring Cloud Api Gateway  , 기능별 API
-2. 사용자 인증과 보안
-3. 블로그 게시글 관리
-4. 댓글 관리
-5. 이미지 업로드
-6. 캐시를 이용한 좋아요 기능
+2. 사용자 인증과 보안 및 회원 관리 API
+   - Spring Security + JWT 인증 / 인가 서비스 구현
+3. 블로그 게시글 관리 API
+   - Board CRUD JPA 구현.
+   - 이미지 업로드 
+     - Commons-fileupload 사용
+     - AWS S3 이미지 저장
+   - 좋아요 및 조회수 Redis로 구현.
+4. 댓글 관리 API
+   - Comment CRUD
 
 -----
 
@@ -30,7 +35,7 @@
 - Java 17
 - Spring Boot , Spring Data JPA, Spring Cloud Eureka, Spring Cloud Api Gateway
 - MariaDB, Redis
-- Jenkins, Docker, Git
+- Docker, Git, Github Actions
 
 -----
 
@@ -52,7 +57,7 @@
 ### Auth API
 
  - 로그인 / 로그아웃
- - 회원 인증
+ - 인증 토큰 검증
  - 인증 토큰 생성
  - 인증 토큰 갱신 
  - 인증 토큰 삭제
@@ -60,21 +65,25 @@
 ### Board API
 
 - 게시글 작성
+  - 이미지 업로드
+
 - 게시글 조회
   - 모든 게시글 조회
   - 카테고리별 게시글 조회
   - 검색한 게시글 조회
 - 게시글 수정
 - 게시글 좋아요
+- 게시글 조회수
 - 게시글 삭제
 
 ### Comment API
 
-	- 댓글 작성
-	- 댓글 조회
-	- 댓글 수정
-	- 댓글 삭제
-	- 댓글 좋아요
+- 댓글 작성
+  - 대댓글 작성
+- 댓글 조회
+- 댓글 수정
+- 댓글 삭제
+- 댓글 좋아요
 
 ------
 
